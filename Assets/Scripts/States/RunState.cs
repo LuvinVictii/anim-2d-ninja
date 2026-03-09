@@ -15,7 +15,7 @@ public class RunState : PlayerState
             return;
         }
 
-        if (controller.JumpPressed)
+        if (!controller.isGrounded)
         {
             controller.StateMachine.ChangeState(new JumpState(controller));
             return;

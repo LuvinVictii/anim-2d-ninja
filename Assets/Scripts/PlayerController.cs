@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
 
     void Attack()
     {
-        GetComponent<Rigidbody2D>().linearVelocity = new Vector2(transform.localScale.x * attackDash, GetComponent<Rigidbody2D>().linearVelocity.y);
+        transform.Translate(Vector2.right * (isRightFacing ? 1 : -1) * attackDash);
     }
 
     void Throw()
