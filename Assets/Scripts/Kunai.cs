@@ -11,7 +11,7 @@ public class Kunai : MonoBehaviour
     {
         this.isFriendly = isFriendly;
         this.isRightFacing = isRightFacing;
-        if (!isRightFacing)
+        if (isRightFacing)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
@@ -27,11 +27,17 @@ public class Kunai : MonoBehaviour
         transform.Translate(Vector3.right * speed * Time.deltaTime * (isRightFacing ? 1 : -1));
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player") && !isFriendly)
+        Debug.Log("Kunai hit: " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Player") && !isFriendly)
         {
-            other.gameObject.GetComponent<PlayerController>().TakeDamage(1);
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage(1);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy") && isFriendly)
+        {
+            Destroy(collision.gameObject);
         }
 
         Destroy(gameObject);

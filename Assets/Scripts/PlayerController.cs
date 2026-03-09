@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (isDead) return;
         if (MoveInput != 0)
         {
             Move();
@@ -89,6 +88,7 @@ public class PlayerController : MonoBehaviour
 
     void ReadInput()
     {
+        if (isDead) return;
         MoveInput = input.Player.Move.ReadValue<Vector2>().x;
         JumpPressed = input.Player.Jump.WasPressedThisFrame();
         AttackPressed = input.Player.Attack.WasPressedThisFrame();
@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
         health -= damage;
         if (health <= 0)
         {
