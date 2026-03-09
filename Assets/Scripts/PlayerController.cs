@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            MoveInput = 0;
             isDead = true;
             Debug.Log("Player has died!");
         }

@@ -11,6 +11,7 @@ public class ThrowState : PlayerState
 
     public override void Update()
     {
+        base.Update();
         throwTimer -= UnityEngine.Time.deltaTime;
 
         if (throwTimer <= 0)

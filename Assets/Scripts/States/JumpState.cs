@@ -11,6 +11,7 @@ public class JumpState : PlayerState
 
     public override void Update()
     {
+        base.Update();
         // jumpTimer -= UnityEngine.Time.deltaTime;
 
         // if (jumpTimer <= 0)

@@ -17,7 +17,7 @@ public abstract class PlayerState
     {
         if (controller.isDead)
         {
-            Debug.Log("Player is dead!");
+            Debug.Log("Player is dead!!");
             controller.StateMachine.ChangeState(new DeadState(controller));
             return;
         }

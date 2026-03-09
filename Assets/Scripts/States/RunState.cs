@@ -9,6 +9,7 @@ public class RunState : PlayerState
 
     public override void Update()
     {
+        base.Update();
         if (controller.MoveInput == 0)
         {
             controller.StateMachine.ChangeState(new IdleState(controller));

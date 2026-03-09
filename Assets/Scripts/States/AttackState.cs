@@ -11,6 +11,7 @@ public class AttackState : PlayerState
 
     public override void Update()
     {
+        base.Update();
         attackTimer -= UnityEngine.Time.deltaTime;
 
         if (attackTimer <= 0)
