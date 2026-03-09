@@ -26,5 +26,11 @@ public class IdleState : PlayerState
             controller.StateMachine.ChangeState(new AttackState(controller));
             return;
         }
+
+        if (controller.ThrowPressed)
+        {
+            controller.StateMachine.ChangeState(new ThrowState(controller));
+            return;
+        }
     }
 }

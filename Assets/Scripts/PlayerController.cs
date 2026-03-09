@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 5f;
     public float jumpForce = 5f;
     public float attackDash = 1f;
+    public int health = 3;
+    public bool isDead = false;
     public GameObject kunaiPrefab;
 
     [HideInInspector] public float MoveInput { get; private set; }
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
+        if (isDead) return;
         if (MoveInput != 0)
         {
             Move();
@@ -92,6 +95,16 @@ public class PlayerController : MonoBehaviour
         ThrowPressed = input.Player.Interact.WasPressedThisFrame();
     }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            isDead = true;
+            Debug.Log("Player has died!");
+        }
+    }
+
     void Flip()
     {
         isRightFacing = !isRightFacing;
@@ -121,6 +134,7 @@ public class PlayerController : MonoBehaviour
 
     void Throw()
     {
+        kunaiPrefab.GetComponent<Kunai>().kunaiInit(isRightFacing, true);
         Instantiate(kunaiPrefab, transform.position + new Vector3(transform.localScale.x * 0.5f, 0, 0), Quaternion.identity);
     }
 }

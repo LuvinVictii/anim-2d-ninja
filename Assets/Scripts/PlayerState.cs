@@ -13,7 +13,14 @@ public abstract class PlayerState
 
     public virtual void Enter() { }
 
-    public virtual void Update() { }
+    public virtual void Update()
+    {
+        if (controller.isDead)
+        {
+            controller.StateMachine.ChangeState(new DeadState(controller));
+            return;
+        }
+    }
 
     public virtual void Exit() { }
 }

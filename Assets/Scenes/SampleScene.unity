@@ -562,6 +562,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 596307123}
+  runSpeed: 5
+  jumpForce: 5
+  attackDash: 1
+  health: 3
+  isDead: 0
+  kunaiPrefab: {fileID: 6060734067616677407, guid: e040e88a85f7b3f478c6a9987ec367b9, type: 3}
+  isGrounded: 1
+  isRightFacing: 1
 --- !u!50 &596307127
 Rigidbody2D:
   serializedVersion: 5
