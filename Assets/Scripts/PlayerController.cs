@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-        if (AttackPressed)
+        if (AttackPressed && isGrounded)
         {
             Attack();
         }
