@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 5f;
     public float jumpForce = 5f;
     public float attackDash = 1f;
+    public float throwOffset = 1f;
     public int health = 3;
     public bool isDead = false;
     public GameObject kunaiPrefab;
@@ -136,7 +137,6 @@ public class PlayerController : MonoBehaviour
 
     void Throw()
     {
-        kunaiPrefab.GetComponent<Kunai>().kunaiInit(isRightFacing, true);
-        Instantiate(kunaiPrefab, transform.position + new Vector3(transform.localScale.x * 0.5f, 0, 0), Quaternion.identity);
+        GameObject kunai = Instantiate(kunaiPrefab, transform.position + new Vector3(transform.localScale.x * throwOffset * (isRightFacing ? 1 : -1), 0, 0), Quaternion.identity);
     }
 }
