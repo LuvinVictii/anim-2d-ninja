@@ -137,6 +137,7 @@ public class PlayerController : MonoBehaviour
 
     void Throw()
     {
-        GameObject kunai = Instantiate(kunaiPrefab, transform.position + new Vector3(transform.localScale.x * throwOffset * (isRightFacing ? 1 : -1), 0, 0), Quaternion.identity);
+        GameObject kunai = Instantiate(kunaiPrefab, transform.position + new Vector3(transform.localScale.x * throwOffset, 0, 0), Quaternion.identity);
+        kunai.GetComponent<Kunai>().KunaiInit(isRightFacing, true);
     }
 }

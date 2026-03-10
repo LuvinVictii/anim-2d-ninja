@@ -24,6 +24,6 @@ public class KunaiSpawner : MonoBehaviour
     {
         Vector3 spawnPosition = transform.position + new Vector3(isRight ? offsetX : -offsetX, 0, 0);
         GameObject kunai = Instantiate(kunaiPrefab, spawnPosition, Quaternion.identity);
-        kunai.GetComponent<Kunai>().kunaiInit(isRight, false);
+        kunai.GetComponent<Kunai>().KunaiInit(isRight, false);
     }
 }

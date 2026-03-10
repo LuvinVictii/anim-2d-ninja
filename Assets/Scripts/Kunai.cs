@@ -7,7 +7,7 @@ public class Kunai : MonoBehaviour
     public bool isFriendly = true;
     public bool isRightFacing = true;
 
-    public void kunaiInit(bool isRightFacing, bool isFriendly)
+    public void KunaiInit(bool isRightFacing, bool isFriendly)
     {
         this.isFriendly = isFriendly;
         this.isRightFacing = isRightFacing;
