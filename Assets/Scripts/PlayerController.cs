@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float throwOffset = 1f;
     public int health = 3;
     public bool isDead = false;
+    public TMP_Text healthText;
     public GameObject kunaiPrefab;
 
     [HideInInspector] public float MoveInput { get; private set; }
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StateMachine.Initialize(new IdleState(this));
+        healthText.text = "Health: " + health;
     }
 
     void Update()
@@ -100,6 +103,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead) return;
         health -= damage;
+        healthText.text = "Health: " + health;
         if (health <= 0)
         {
             MoveInput = 0;
