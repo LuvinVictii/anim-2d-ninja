@@ -6,7 +6,6 @@ public class DeadState : PlayerState
 
     public override void Enter()
     {
-        Debug.Log("Player has entered DeadState.");
         animator.Play("Dead");
     }
 }
